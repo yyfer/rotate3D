@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Carousel 3D</title>
+	<style>
+		body {
+			min-width: 800px;
+		}
+		h1 {
+			text-align: center;
+			color: rgb(212, 199, 199);
+		}
+		div.scenery {
+			position: relative;
+			width: 800px;
+			height: 480px;
+			margin: 0 auto;
+			text-align: center;
+			background-color: rgba(212, 199, 199, 1);
+			box-shadow: 0 0 10px;    
+			perspective: 2000px; /*设置为200px更加有趣，在舞台上设置视点*/
+		}
+		div.container {
+			width: 100%;
+			height: 100%;
+			transition: all 0.5s ease-in-out;
+			transform-style: preserve-3d; /*声明其下的内容为3d*/
+		}
+		img {
+			position: absolute;
+			top: 120px;
+			left: 50%;
+			margin-left: -80px;
+			width: 160px;
+			height: 240px;
+			box-shadow: 0 0 12px rgba(57, 162, 109, 0.2);
+		}
+		.pos1 {
+			transform: rotateY(45deg) translateZ(241px);
+		}
+		.pos2 {
+			transform: rotateY(90deg) translateZ(241px);
+		}
+		.pos3 {
+			transform: rotateY(135deg) translateZ(241px);
+		}
+		.pos4 {
+			transform: rotateY(180deg) translateZ(241px);
+		}
+		.pos5 {
+			transform: rotateY(225deg) translateZ(241px);
+		}
+		.pos6 {
+			transform: rotateY(270deg) translateZ(241px);
+		}
+		.pos7 {
+			transform: rotateY(315deg) translateZ(241px);
+		}
+		.pos8 {
+			transform: rotateY(360deg) translateZ(241px);
+		}
+	</style>
+</head>
+<body>
+	<h1>旋转木马3D效果</h1>
+	<div class="scenery">
+		<div class="container" style="transform: rotateX(-10deg) rotateY(0deg);">
+			<img src="./img/1.jpg" alt="" class="pos1">
+			<img src="./img/2.jpg" alt="" class="pos2">
+			<img src="./img/3.jpg" alt="" class="pos3">
+			<img src="./img/4.jpg" alt="" class="pos4">
+			<img src="./img/5.jpg" alt="" class="pos5">
+			<img src="./img/6.jpg" alt="" class="pos6">
+			<img src="./img/7.jpg" alt="" class="pos7">
+			<img src="./img/8.jpg" alt="" class="pos8">
+		</div>
+	</div>
+	<script type="text/javascript">
+		// selector
+		let $ = function (s) {
+			return document.querySelector(s)
+		}
+		// CSS transform变换应用
+		transform = function(element, value, key) {
+			element.style.transform = value;	
+			return element;
+		}
+		let scenery = $('div.scenery')
+		let container = $('div.container')
+		let rotate = 45, count = 0
+		scenery.addEventListener('click',function () {
+			count++
+			transform(container,'rotateX(-10deg) rotateY('+ (rotate * count) + 'deg)')
+		})
+	</script>
+</body>
+</html>
