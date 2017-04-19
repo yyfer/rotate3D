@@ -14,3 +14,5 @@
 2. transition	渐变，动画的核心，关键是设置好初始、结束的位置
 3. transform-style	转换类型，设置在包含动画的容器上，两个值 flat|preserve-2d ，用于声明其包含的内容是平面的还是3d的
 4. transform	转换，包含4个内容，有rotate、translate、scale、skew，这里主要使用了旋转和偏移
+
+浏览器限制：ie，不支持transform-style属性，ie9及以下不支持transform，所以ie下是无法显示3d效果的；使用最新的chrome浏览器试用
